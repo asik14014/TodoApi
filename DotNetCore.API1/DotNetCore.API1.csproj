@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\$ext_safeprojectname$.API.Common\$ext_safeprojectname$.API.Common.csproj" />
+    <ProjectReference Include="..\$ext_safeprojectname$.API.DataContracts\$ext_safeprojectname$.API.DataContracts.csproj" />
+    <ProjectReference Include="..\$ext_safeprojectname$.Services\$ext_safeprojectname$.Services.csproj" />
+    <ProjectReference Include="..\$ext_safeprojectname$.IoC.Configuration\$ext_safeprojectname$.IoC.Configuration.csproj" />
+  </ItemGroup>
+
+</Project>

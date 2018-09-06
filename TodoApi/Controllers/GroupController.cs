@@ -1,52 +1,127 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NLog;
+using TodoApi.Code;
 using TodoApi.Models;
+using TodoData.Models.Group;
 
 namespace TodoApi.Controllers
 {
     public class GroupController : Controller
     {
-        public IActionResult Index()
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
+        /// <summary>
+        /// Достать группу по идентификатору
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorize]
+        public object Get(long id)
         {
-            return View();
+            logger.Log(LogLevel.Debug, $"GroupController.Get({id})");
+            try
+            {
+                return GroupManager.GetGroup(id);
+            }
+            catch (Exception ex)
+            {
+                logger.Log(LogLevel.Error, $"GroupController.Get({id}) - {ex}");
+                //изменить http status code
+                return new Response(100, ex.Message);
+            }
         }
 
         /// <summary>
-        /// 
+        /// Достать все группы по пользователю
         /// </summary>
         /// <returns></returns>
-        public Response Get()
+        [HttpGet]
+        [Authorize]
+        public object GetAll(long userId)
         {
-            return new Response();
+            logger.Log(LogLevel.Debug, $"GroupController.GetAll({userId})");
+
+            try
+            {
+                return GroupManager.GetAllGroupsByUser(userId);
+            }
+            catch (Exception ex)
+            {
+                logger.Log(LogLevel.Error, $"GroupController.GetAll({userId}) - {ex}");
+                //изменить http status code
+                return new Response(100, ex.Message);
+            }
         }
 
         /// <summary>
         /// Создать группу
         /// </summary>
-        public Response Create()
+        [HttpPut]
+        [Authorize]
+        public object Create(Group group)
         {
-            return new Response();
+            logger.Log(LogLevel.Debug, $"GroupController.Create({group})"); //object to json
+
+            try
+            {
+                var newGroup = GroupManager.SaveOrUpdate(group);
+                return new Response(0, "Success"); //добавить объект в response
+            }
+            catch (Exception ex)
+            {
+                logger.Log(LogLevel.Error, $"GroupController.Create({group}) - {ex}"); //object to json
+                //изменить http status code
+                return new Response(100, ex.Message);
+            }
         }
 
         /// <summary>
         /// Редактировать группу
         /// </summary>
         /// <returns></returns>
-        public Response Modify()
+        [HttpPut]
+        [Authorize]
+        public object Update(Group group)
         {
-            return new Response();
+            logger.Log(LogLevel.Debug, $"GroupController.Update({group})"); //object to json
+
+            try
+            {
+                var newGroup = GroupManager.SaveOrUpdate(group);
+                return new Response(0, "Success"); //добавить объект в response
+            }
+            catch (Exception ex)
+            {
+                logger.Log(LogLevel.Error, $"GroupController.Update({group}) - {ex}"); //object to json
+                //изменить http status code
+                return new Response(100, ex.Message);
+            }
         }
 
         /// <summary>
         /// Удалить группу
         /// </summary>
         /// <returns></returns>
-        public Response Delete()
+        [HttpDelete]
+        [Authorize]
+        public object Delete(Group group)
         {
-            return new Response();
+            logger.Log(LogLevel.Debug, $"GroupController.Delete({group})"); //object to json
+
+            try
+            {
+                GroupManager.Delete(group);
+                return new Response(0, "Success");
+            }
+            catch (Exception ex)
+            {
+                logger.Log(LogLevel.Error, $"GroupController.Delete({group}) - {ex}"); //object to json
+                //изменить http status code
+                return new Response(100, ex.Message);
+            }
         }
     }
 }

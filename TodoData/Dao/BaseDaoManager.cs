@@ -2,6 +2,7 @@
 using NLog;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using TodoData.Dao.Interface;
 
@@ -44,7 +45,20 @@ namespace TodoData.Dao
 
         public List<T> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var session = NHibertnateSession.OpenSession())
+                {
+                    using (ITransaction transaction = session.BeginTransaction())
+                    {
+                        return session.Query<T>().ToList();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public List<T> GetByExample(T exampleInstance, string[] propertiesToExclude)

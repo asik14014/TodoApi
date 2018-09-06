@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,6 +10,9 @@ namespace TodoData.Models.User
         public virtual long Id { get; set; }
 
         public virtual string Email { get; set; }
+
+        [JsonIgnore]
+        public virtual string Password { get; set; }
 
         public virtual bool IsActive { get; set; }
 
