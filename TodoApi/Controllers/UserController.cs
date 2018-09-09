@@ -30,6 +30,16 @@ namespace TodoApi.Controllers
             {
                 var result = UserManager.Register(user);
 
+                try
+                {
+                    GroupManager.CreateFavorites(result.Id);
+                }
+                catch (Exception e)
+                {
+                    logger.Log(LogLevel.Error, $"Не смог создать группу избранное." +
+                        $"UserController.Registration({Json(user)}) - {e}");
+                }
+
                 return Ok();
             }
             catch (Exception ex)

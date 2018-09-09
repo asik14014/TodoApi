@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TodoData.Dao;
+using TodoData.Enum;
 using TodoData.Models.Group;
 
 namespace TodoApi.Code
@@ -39,6 +40,23 @@ namespace TodoApi.Code
         public static Group SaveOrUpdate(Group group)
         {
             return groupDaoManager.SaveOrUpdate(group);
+        }
+
+        public static Group CreateFavorites(long userId)
+        {
+            var group = new Group()
+            {
+                Id = 0,
+                UserId = userId,
+                GroupType = (int)GroupTypeEnum.FAVOURITES,
+                Name = "Избранное",
+                Description = "Группа избранное",
+                Order = 0,
+                CreationDate = DateTime.Now,
+                LastUpdate = DateTime.Now,
+                IsActive = true
+            };
+            return groupDaoManager.Save(group);
         }
     }
 }
