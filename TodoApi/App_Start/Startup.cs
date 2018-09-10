@@ -14,6 +14,7 @@ namespace TodoApi
     {
         public void ConfigureServices(IServiceCollection services) 
         {
+            services.AddMvc();
             //services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(o => o.LoginPath = new PathString("/login"))
@@ -66,10 +67,9 @@ namespace TodoApi
                  */
         }
 
-/*
         public void Configure(IApplicationBuilder app) {
             app.UseAuthentication();
+            app.UseMvc();
         }
-         */
     }
 }
