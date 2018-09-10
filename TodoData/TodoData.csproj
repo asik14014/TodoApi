@@ -1,26 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
-    <None Remove="Mapping\AccountPlan.hbm.xml" />
-    <None Remove="Mapping\Attachment.hbm.xml" />
-    <None Remove="Mapping\AttachmentType.hbm.xml" />
-    <None Remove="Mapping\Currency.hbm.xml" />
-    <None Remove="Mapping\Group.hbm.xml" />
-    <None Remove="Mapping\GroupType..hbm.xml" />
-    <None Remove="Mapping\SharedGroups.hbm.xml" />
-    <None Remove="Mapping\SharedTasks.hbm.xml" />
-    <None Remove="Mapping\ShareType.hbm.xml" />
-    <None Remove="Mapping\Task.hbm.xml" />
-    <None Remove="Mapping\TaskStatus.hbm.xml" />
-    <None Remove="Mapping\User.hbm.xml" />
-    <None Remove="Mapping\UserInfo.hbm.xml" />
-    <None Remove="Mapping\UserType.hbm.xml" />
+    <None Remove="Mapping\AccountPlan.hbm.xml"/>
+    <None Remove="Mapping\Attachment.hbm.xml"/>
+    <None Remove="Mapping\AttachmentType.hbm.xml"/>
+    <None Remove="Mapping\Currency.hbm.xml"/>
+    <None Remove="Mapping\Group.hbm.xml"/>
+    <None Remove="Mapping\GroupType..hbm.xml"/>
+    <None Remove="Mapping\SharedGroups.hbm.xml"/>
+    <None Remove="Mapping\SharedTasks.hbm.xml"/>
+    <None Remove="Mapping\ShareType.hbm.xml"/>
+    <None Remove="Mapping\Task.hbm.xml"/>
+    <None Remove="Mapping\TaskStatus.hbm.xml"/>
+    <None Remove="Mapping\User.hbm.xml"/>
+    <None Remove="Mapping\UserInfo.hbm.xml"/>
+    <None Remove="Mapping\UserType.hbm.xml"/>
   </ItemGroup>
-
   <ItemGroup>
     <EmbeddedResource Include="Mapping\AccountPlan.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -65,16 +62,14 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
-
   <ItemGroup>
-    <PackageReference Include="NHibernate" Version="5.1.3" />
-    <PackageReference Include="NLog" Version="4.5.9" />
+    <PackageReference Include="NHibernate" Version="5.1.3"/>
+    <PackageReference Include="NLog" Version="4.5.9"/>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2"/>
   </ItemGroup>
-
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\newtonsoft.json\10.0.1\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
-
 </Project>
