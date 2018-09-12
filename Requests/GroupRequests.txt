@@ -1,0 +1,19 @@
+http://localhost:49592/Task/GetAll/1
+
+
+PUT http://localhost:49592/Task/Create HTTP/1.1
+content-type: application/json
+
+{
+    "Id": "0",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+
+PUT http://localhost:49592/Task/Create HTTP/1.1
+content-type: application/json
+
+{
+    "Id": "0",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Owin;
 
 namespace TodoApi
@@ -14,6 +15,7 @@ namespace TodoApi
     {
         public void ConfigureServices(IServiceCollection services) 
         {
+            services.AddRouting(options => options.LowercaseUrls = true);
             services.AddMvc();
             //services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -67,9 +69,14 @@ namespace TodoApi
                  */
         }
 
-        public void Configure(IApplicationBuilder app) {
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {
             app.UseAuthentication();
             app.UseMvc();
+
+            app.Run(async (context) => 
+            {
+                await context.Response.WriteAsync("Started");
+            });
         }
     }
 }

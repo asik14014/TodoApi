@@ -12,7 +12,7 @@ namespace TodoApi.App_Start
     {
         public static void Register(HttpConfiguration config)
         {
-
+            /*
             // Web API routes
             config.MapHttpAttributeRoutes();
 
@@ -24,6 +24,7 @@ namespace TodoApi.App_Start
 
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+             */
         }
     }
 }

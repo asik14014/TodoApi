@@ -8,7 +8,8 @@ using TodoData.Models.Task;
 
 namespace TodoApi.Controllers
 {
-    public class TaskController : Controller
+    [Route("api/[controller]")]
+    public class TaskController : ControllerBase
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
         
@@ -16,14 +17,15 @@ namespace TodoApi.Controllers
         /// Достать задачу по идентификатору
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
-        [Authorize]
+        [HttpGet("{id}")]
+        //[Authorize]
         public object Get(long id)
         {
             logger.Log(LogLevel.Debug, $"TaskController.Get({id})");
             try
             {
-                return TaskManager.GetTask(id);
+                return $"Works! {id}";
+                //return TaskManager.GetTask(id);
             }
             catch (Exception ex)
             {
