@@ -1,5 +1,5 @@
-INSERT INTO dbo.GroupTypes (intId, vchName)
-VALUES (1, N'Избранное')
+INSERT INTO dbo.GroupTypes (vchName)
+VALUES (N'Избранное')
 
 SELECT *
 FROM dbo.GroupTypes
