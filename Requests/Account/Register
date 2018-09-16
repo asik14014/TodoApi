@@ -1,0 +1,9 @@
+
+POST https://localhost:44320/api/Account/Register HTTP/1.1
+content-type: application/json
+
+{
+    "Email":"todo@gmail.com",
+    "Password":"123456",
+    "ConfirmPassword":"123456"
+}
