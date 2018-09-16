@@ -1,10 +1,6 @@
-UPDATE [dbo].[UserTypes]
-SET [vchDescription] = N'Пользовательские права'
-WHERE intId = 1
-
-UPDATE [dbo].[UserTypes]
-SET [vchDescription] = N'Полный доступ'
-WHERE intId = 2
+INSERT INTO [dbo].[UserTypes] (vchName, vchDescription)
+VALUES (N'Пользователь', N'Пользовательские права'),
+(N'Администратор', N'Полный доступ')
 
 SELECT *
 FROM [dbo].[UserTypes] (nolock)

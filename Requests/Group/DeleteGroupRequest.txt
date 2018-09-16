@@ -1,0 +1,14 @@
+DELETE http://localhost:49592/Group/Delete HTTP/1.1
+content-type: application/json
+
+{
+    "Id": "3",
+    "UserId": "1",
+    "GroupType": "1",
+    "Name": "Для удаления",
+    "Description": "Группа 3",
+    "Order": "2",
+    "CreationDate": "12.09.2018",
+    "LastUpdate": "12.09.2018 22:18:00",
+    "IsActive": "true"
+}

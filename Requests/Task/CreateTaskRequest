@@ -1,0 +1,11 @@
+
+PUT http://localhost:49592/Task/Create HTTP/1.1
+content-type: application/json
+
+{
+    "GroupId": "1",
+    "UserId": "4",
+    "CreationDate": "12.09.2018",
+    "Status": "1",
+    "LastUpdate": "12.09.2018 22:18:00"
+}

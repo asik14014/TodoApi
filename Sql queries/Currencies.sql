@@ -1,6 +1,6 @@
-INSERT INTO [dbo].[Currencies] (intId, vchName, intCode)
+INSERT INTO [dbo].[Currencies] (vchName, intCode)
 VALUES 
-(1, N'KZT', 100)
+(N'KZT', 100)
 
 SELECT *
 FROM [dbo].[Currencies] (nolock)

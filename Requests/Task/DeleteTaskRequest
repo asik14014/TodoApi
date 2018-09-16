@@ -1,0 +1,11 @@
+DELETE http://localhost:49592/Task/Delete HTTP/1.1
+content-type: application/json
+
+{
+    "Id": "6",
+    "GroupId": "1",
+    "UserId": "4",
+    "CreationDate": "13.09.2018",
+    "Status": "1",
+    "LastUpdate": "13.09.2018 22:18:00"
+}

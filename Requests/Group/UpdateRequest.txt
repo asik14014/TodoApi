@@ -1,0 +1,15 @@
+
+PUT http://localhost:49592/Group/Update HTTP/1.1
+content-type: application/json
+
+{
+    "Id": "1",
+    "UserId": "1",
+    "GroupType": "1",
+    "Name": "Работа",
+    "Description": "Обновлен",
+    "Order": "1",
+    "CreationDate": "12.09.2018",
+    "LastUpdate": "12.09.2018 22:18:00",
+    "IsActive": "true"
+}

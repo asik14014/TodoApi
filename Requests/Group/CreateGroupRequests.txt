@@ -5,9 +5,9 @@ content-type: application/json
 {
     "UserId": "1",
     "GroupType": "1",
-    "Name": "Работа",
-    "Description": "Тест",
-    "Order": "0",
+    "Name": "Для удаления",
+    "Description": "Группа 3",
+    "Order": "2",
     "CreationDate": "12.09.2018",
     "LastUpdate": "12.09.2018 22:18:00",
     "IsActive": "true"
