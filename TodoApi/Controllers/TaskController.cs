@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.CodeDom.Compiler;
 using NLog;
 using TodoApi.Code;
 using TodoApi.Models;
@@ -132,12 +131,8 @@ namespace TodoApi.Controllers
         /// <returns></returns>
         public ActionResult UnsafeCodeExecution(string code)
         {
-            var provider = CodeDomProvider.CreateProvider("CSharp");
-            var compilerParameters = new CompilerParameters { ReferencedAssemblies = { "System.dll", "System.Runtime.dll" } };
-            var compilerResults = provider.CompileAssemblyFromSource(compilerParameters, code);  // Noncompliant
-            object myInstance = compilerResults.CompiledAssembly.CreateInstance("MyClass");
-            var result = (string)myInstance.GetType().GetMethod("MyMethod").Invoke(myInstance, new object[0]);
-            return Content(result);
+            string name = Request.QueryString["name"];
+            Response.Write("Hello " + name); // Noncompliant
         }
     }
 }
