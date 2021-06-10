@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NLog;
@@ -132,6 +133,7 @@ namespace TodoApi.Controllers
         public ActionResult UnsafeCodeExecution(string code)
         {
             string name = Request.QueryString["name"];
+            Response.
             Response.Write("Hello " + name); // Noncompliant
         }
     }
